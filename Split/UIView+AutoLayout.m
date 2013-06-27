@@ -4,7 +4,7 @@
 
 @implementation UIView (AutoLayout)
 
-- (void)addConstraintForSubview:(UIView *)subview withVisualFormat:(NSString *)format {
+- (void)addConstraintForSubview:(UIView *)subview visualFormat:(NSString *)format {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\[(\\w*)[(\\]]"
                                                                            options:0
                                                                              error:nil];
@@ -20,6 +20,13 @@
                                                                  options:0
                                                                  metrics:nil
                                                                    views:viewDict]];
+}
+
+- (void)addConstraintsForViews:(NSDictionary *)views visualFormat:(NSString *)format {
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:format
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:views]];
 }
 
 @end

@@ -32,14 +32,63 @@
 #pragma mark - Private API
 
 - (void)addChildVCs {
+    // backVC
     [self addChildViewController:self.backVC];
     [self.view addSubview:self.backVC.view];
     
     self.backVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraintForSubview:self.backVC.view withVisualFormat:@"H:|[view]|"];
-    [self.view addConstraintForSubview:self.backVC.view withVisualFormat:@"V:|[view(150)]"];
+    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"H:|[view]|"];
+    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"V:|[view(150)]"];
     
     [self.backVC didMoveToParentViewController:self];
+    
+    
+    // frontVC
+    [self addChildViewController:self.frontVC];
+    [self.view addSubview:self.frontVC.view];
+    
+    self.frontVC.view.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraintForSubview:self.frontVC.view visualFormat:@"H:|[view]|"];
+    NSDictionary *views = @{@"backView": self.backVC.view, @"frontView": self.frontVC.view};
+    [self.view addConstraintsForViews:views visualFormat:@"V:[backView][frontView]|"];
+    
+    [self.frontVC didMoveToParentViewController:self];
+    
+//    NSLog(@"view: %@", self.frontVC.view);
+//    NSLog(@"vert: %@", [self.frontVC.view constraintsAffectingLayoutForAxis:UILayoutConstraintAxisVertical]);
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
