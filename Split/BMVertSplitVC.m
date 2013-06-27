@@ -11,9 +11,12 @@
 
 #define SplitPoint 150
 
-@interface BMVertSplitVC ()
-
+@interface BMVertSplitVC (){
+    NSArray *dockedConstraints;
+    NSArray *expandedConstraints;
+}
 @end
+
 
 @implementation BMVertSplitVC
 
@@ -38,7 +41,13 @@
     
     self.backVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraintForSubview:self.backVC.view visualFormat:@"H:|[view]|"];
-    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"V:|[view(150)]"];
+    
+    dockedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view(150)]"
+                                                                                   options:0
+                                                                                   metrics:nil
+                                                                                     views:@{@"view": self.backVC.view}];
+    [self.view addConstraints:dockedConstraints];
+//    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"V:|[view(150)]"];
     
     [self.backVC didMoveToParentViewController:self];
     
@@ -56,6 +65,22 @@
     
 //    NSLog(@"view: %@", self.frontVC.view);
 //    NSLog(@"vert: %@", [self.frontVC.view constraintsAffectingLayoutForAxis:UILayoutConstraintAxisVertical]);
+    
+    UITapGestureRecognizer *tapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(backViewWasTapped:)];
+    [self.backVC.view addGestureRecognizer:tapRecognizer];
+}
+
+- (void)backViewWasTapped:(UIGestureRecognizer *)tapRecognizer {
+    [self.view removeConstraints:dockedConstraints];
+    expandedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backView]|"
+                                                                  options:0
+                                                                  metrics:nil
+                                                                    views:@{@"backView": self.backVC.view}];
+    [self.view addConstraints:expandedConstraints];
+    [UIView animateWithDuration:1
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
 @end
