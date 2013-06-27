@@ -124,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				00D46941177C0B7F003CF1CD /* Split */,
+				00D46942177C0B7F003CF1CD /* Supporting Files */,
 				00D4693A177C0B7F003CF1CD /* Frameworks */,
 				00D46939177C0B7F003CF1CD /* Products */,
 			);
@@ -151,9 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				00D46961177CBAAF003CF1CD /* Submodules */,
-				00D4694A177C0B7F003CF1CD /* AppDelegate.h */,
-				00D4694B177C0B7F003CF1CD /* AppDelegate.m */,
-				00D46942177C0B7F003CF1CD /* Supporting Files */,
+				00D469C0177CBBBD003CF1CD /* AppDelegate */,
 				00D4695B177C0BE8003CF1CD /* BMVertSplitVC */,
 			);
 			path = Split;
@@ -171,6 +170,7 @@
 				00D46951177C0B7F003CF1CD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = Split;
 			sourceTree = "<group>";
 		};
 		00D4695B177C0BE8003CF1CD /* BMVertSplitVC */ = {
@@ -434,6 +434,15 @@
 				00D469BE177CBB4C003CF1CD /* UIView+AutoLayout.m */,
 			);
 			path = "UIView+AutoLayout";
+			sourceTree = "<group>";
+		};
+		00D469C0177CBBBD003CF1CD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				00D4694A177C0B7F003CF1CD /* AppDelegate.h */,
+				00D4694B177C0B7F003CF1CD /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

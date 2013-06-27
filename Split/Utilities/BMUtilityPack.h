@@ -32,5 +32,6 @@
 #import "BMMath.h"
 #import "NSString+Utilities.h"
 #import "UIView+Utilities.h"
+#import "UIView+AutoLayout.h"
 
 #endif
