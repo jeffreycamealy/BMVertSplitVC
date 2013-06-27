@@ -16,6 +16,8 @@
 		00D4694E177C0B7F003CF1CD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D4694D177C0B7F003CF1CD /* Default.png */; };
 		00D46950177C0B7F003CF1CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D4694F177C0B7F003CF1CD /* Default@2x.png */; };
 		00D46952177C0B7F003CF1CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D46951177C0B7F003CF1CD /* Default-568h@2x.png */; };
+		00D4695A177C0BE6003CF1CD /* BMVertSplitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D46959177C0BE6003CF1CD /* BMVertSplitVC.m */; };
+		00D4695E177C0FD6003CF1CD /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		00D4694D177C0B7F003CF1CD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		00D4694F177C0B7F003CF1CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		00D46951177C0B7F003CF1CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		00D46958177C0BE6003CF1CD /* BMVertSplitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMVertSplitVC.h; sourceTree = "<group>"; };
+		00D46959177C0BE6003CF1CD /* BMVertSplitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMVertSplitVC.m; sourceTree = "<group>"; };
+		00D4695C177C0FD6003CF1CD /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 				00D4694A177C0B7F003CF1CD /* AppDelegate.h */,
 				00D4694B177C0B7F003CF1CD /* AppDelegate.m */,
 				00D46942177C0B7F003CF1CD /* Supporting Files */,
+				00D4695B177C0BE8003CF1CD /* BMVertSplitVC */,
+				00D4695F177C0FD8003CF1CD /* UIView+AutoLayout */,
 			);
 			path = Split;
 			sourceTree = "<group>";
@@ -97,6 +105,24 @@
 				00D46951177C0B7F003CF1CD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00D4695B177C0BE8003CF1CD /* BMVertSplitVC */ = {
+			isa = PBXGroup;
+			children = (
+				00D46958177C0BE6003CF1CD /* BMVertSplitVC.h */,
+				00D46959177C0BE6003CF1CD /* BMVertSplitVC.m */,
+			);
+			name = BMVertSplitVC;
+			sourceTree = "<group>";
+		};
+		00D4695F177C0FD8003CF1CD /* UIView+AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				00D4695C177C0FD6003CF1CD /* UIView+AutoLayout.h */,
+				00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */,
+			);
+			name = "UIView+AutoLayout";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +192,8 @@
 			files = (
 				00D46948177C0B7F003CF1CD /* main.m in Sources */,
 				00D4694C177C0B7F003CF1CD /* AppDelegate.m in Sources */,
+				00D4695A177C0BE6003CF1CD /* BMVertSplitVC.m in Sources */,
+				00D4695E177C0FD6003CF1CD /* UIView+AutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
