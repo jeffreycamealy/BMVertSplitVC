@@ -17,7 +17,6 @@
 		00D46950177C0B7F003CF1CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D4694F177C0B7F003CF1CD /* Default@2x.png */; };
 		00D46952177C0B7F003CF1CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D46951177C0B7F003CF1CD /* Default-568h@2x.png */; };
 		00D4695A177C0BE6003CF1CD /* BMVertSplitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D46959177C0BE6003CF1CD /* BMVertSplitVC.m */; };
-		00D4695E177C0FD6003CF1CD /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */; };
 		00D469A7177CBABE003CF1CD /* BMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D46965177CBABE003CF1CD /* BMColors.m */; };
 		00D469A8177CBABE003CF1CD /* BMDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D46968177CBABE003CF1CD /* BMDebugUtilities.m */; };
 		00D469A9177CBABE003CF1CD /* BMDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D4696B177CBABE003CF1CD /* BMDispatch.m */; };
@@ -39,6 +38,7 @@
 		00D469B9177CBABE003CF1CD /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D469A0177CBABE003CF1CD /* UIView+Utilities.m */; };
 		00D469BA177CBABE003CF1CD /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D469A3177CBABE003CF1CD /* UIViewController+Utilities.m */; };
 		00D469BB177CBABE003CF1CD /* VTPG_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D469A6177CBABE003CF1CD /* VTPG_Common.m */; };
+		00D469BF177CBB4C003CF1CD /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D469BE177CBB4C003CF1CD /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,6 @@
 		00D46951177C0B7F003CF1CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		00D46958177C0BE6003CF1CD /* BMVertSplitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMVertSplitVC.h; sourceTree = "<group>"; };
 		00D46959177C0BE6003CF1CD /* BMVertSplitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMVertSplitVC.m; sourceTree = "<group>"; };
-		00D4695C177C0FD6003CF1CD /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
-		00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		00D46964177CBABE003CF1CD /* BMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMColors.h; sourceTree = "<group>"; };
 		00D46965177CBABE003CF1CD /* BMColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMColors.m; sourceTree = "<group>"; };
 		00D46967177CBABE003CF1CD /* BMDebugUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDebugUtilities.h; sourceTree = "<group>"; };
@@ -104,6 +102,8 @@
 		00D469A3177CBABE003CF1CD /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		00D469A5177CBABE003CF1CD /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
 		00D469A6177CBABE003CF1CD /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
+		00D469BD177CBB4C003CF1CD /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		00D469BE177CBB4C003CF1CD /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,6 @@
 				00D4694B177C0B7F003CF1CD /* AppDelegate.m */,
 				00D46942177C0B7F003CF1CD /* Supporting Files */,
 				00D4695B177C0BE8003CF1CD /* BMVertSplitVC */,
-				00D4695F177C0FD8003CF1CD /* UIView+AutoLayout */,
 			);
 			path = Split;
 			sourceTree = "<group>";
@@ -183,15 +182,6 @@
 			name = BMVertSplitVC;
 			sourceTree = "<group>";
 		};
-		00D4695F177C0FD8003CF1CD /* UIView+AutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				00D4695C177C0FD6003CF1CD /* UIView+AutoLayout.h */,
-				00D4695D177C0FD6003CF1CD /* UIView+AutoLayout.m */,
-			);
-			name = "UIView+AutoLayout";
-			sourceTree = "<group>";
-		};
 		00D46961177CBAAF003CF1CD /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +193,7 @@
 		00D46962177CBABE003CF1CD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				00D469BC177CBB4C003CF1CD /* UIView+AutoLayout */,
 				00D46963177CBABE003CF1CD /* BMColors */,
 				00D46966177CBABE003CF1CD /* BMDebugUtilities */,
 				00D46969177CBABE003CF1CD /* BMDispatch */,
@@ -436,6 +427,15 @@
 			path = VTPG_Common;
 			sourceTree = "<group>";
 		};
+		00D469BC177CBB4C003CF1CD /* UIView+AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				00D469BD177CBB4C003CF1CD /* UIView+AutoLayout.h */,
+				00D469BE177CBB4C003CF1CD /* UIView+AutoLayout.m */,
+			);
+			path = "UIView+AutoLayout";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,7 +504,6 @@
 				00D46948177C0B7F003CF1CD /* main.m in Sources */,
 				00D4694C177C0B7F003CF1CD /* AppDelegate.m in Sources */,
 				00D4695A177C0BE6003CF1CD /* BMVertSplitVC.m in Sources */,
-				00D4695E177C0FD6003CF1CD /* UIView+AutoLayout.m in Sources */,
 				00D469A7177CBABE003CF1CD /* BMColors.m in Sources */,
 				00D469A8177CBABE003CF1CD /* BMDebugUtilities.m in Sources */,
 				00D469A9177CBABE003CF1CD /* BMDispatch.m in Sources */,
@@ -526,6 +525,7 @@
 				00D469B9177CBABE003CF1CD /* UIView+Utilities.m in Sources */,
 				00D469BA177CBABE003CF1CD /* UIViewController+Utilities.m in Sources */,
 				00D469BB177CBABE003CF1CD /* VTPG_Common.m in Sources */,
+				00D469BF177CBB4C003CF1CD /* UIView+AutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
