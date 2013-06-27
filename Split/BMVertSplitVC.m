@@ -40,14 +40,13 @@
     [self.view addSubview:self.backVC.view];
     
     self.backVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"H:|[view]|"];
+    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"H:|[backView]|"];
     
-    dockedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view(150)]"
+    dockedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backView(150)]"
                                                                                    options:0
                                                                                    metrics:nil
-                                                                                     views:@{@"view": self.backVC.view}];
+                                                                                     views:@{@"backView": self.backVC.view}];
     [self.view addConstraints:dockedConstraints];
-//    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"V:|[view(150)]"];
     
     [self.backVC didMoveToParentViewController:self];
     
@@ -57,8 +56,9 @@
     [self.view addSubview:self.frontVC.view];
     
     self.frontVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraintForSubview:self.frontVC.view visualFormat:@"H:|[view]|"];
-    NSDictionary *views = @{@"backView": self.backVC.view, @"frontView": self.frontVC.view};
+    [self.view addConstraintForSubview:self.frontVC.view visualFormat:@"H:|[frontView]|"];
+    NSDictionary *views = @{@"backView": self.backVC.view,
+                            @"frontView": self.frontVC.view};
     [self.view addConstraintsForViews:views visualFormat:@"V:[backView][frontView]|"];
     
     [self.frontVC didMoveToParentViewController:self];
