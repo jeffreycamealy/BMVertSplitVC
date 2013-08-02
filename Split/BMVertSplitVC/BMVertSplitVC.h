@@ -10,9 +10,12 @@
 
 @interface BMVertSplitVC : UIViewController
 
-- (id)initWithBackVC:(UIViewController *)backVC frontVC:(UIViewController *)frontVC;
-
 @property (readonly) UIViewController *backVC;
 @property (readonly) UIViewController *frontVC;
 
+- (id)initWithBackVC:(UIViewController *)backVC frontVC:(UIViewController *)frontVC;
+- (void)contractBackView;
+
+- (void)backViewWillExpand;
+- (void)backViewWillContract;
 @end

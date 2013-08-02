@@ -10,6 +10,7 @@
 #import "UIView+AutoLayout.h"
 
 #define SplitPoint 150
+#define ExpandContractDuration 0.2
 
 @interface BMVertSplitVC (){
     NSArray *dockedConstraints;
@@ -27,9 +28,17 @@
         _backVC = backVC;
         _frontVC = frontVC;
         [self addChildVCs];
+        [self addTopTapRecognizer];
     }
     return self;
 }
+
+
+#pragma mark - Public API
+
+// Subclass Can Override
+- (void)backViewWillExpand {}
+- (void)backViewWillContract {}
 
 
 #pragma mark - Private API
@@ -62,10 +71,9 @@
     [self.view addConstraintsForViews:views visualFormat:@"V:[backView][frontView]|"];
     
     [self.frontVC didMoveToParentViewController:self];
-    
-//    NSLog(@"view: %@", self.frontVC.view);
-//    NSLog(@"vert: %@", [self.frontVC.view constraintsAffectingLayoutForAxis:UILayoutConstraintAxisVertical]);
-    
+}
+
+- (void)addTopTapRecognizer {
     UITapGestureRecognizer *tapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(backViewWasTapped:)];
     [self.backVC.view addGestureRecognizer:tapRecognizer];
 }
@@ -77,10 +85,22 @@
                                                                   metrics:nil
                                                                     views:@{@"backView": self.backVC.view}];
     [self.view addConstraints:expandedConstraints];
-    [UIView animateWithDuration:1
+    [UIView animateWithDuration:ExpandContractDuration
                      animations:^{
                          [self.view layoutIfNeeded];
                      }];
+    
+    [self backViewWillExpand];
+}
+
+- (void)contractBackView {
+    [self.view removeConstraints:expandedConstraints];
+    [self.view addConstraints:dockedConstraints];
+    [UIView animateWithDuration:ExpandContractDuration
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+    [self backViewWillContract];
 }
 
 @end
