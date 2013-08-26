@@ -13,8 +13,9 @@
 #define ExpandContractDuration 0.2
 
 @interface BMVertSplitVC (){
-    NSArray *dockedConstraints;
-    NSArray *expandedConstraints;
+    id<MASConstraint> contractedConstraint;
+    id<MASConstraint> expandedConstraint;
+    BOOL backViewIsExpanded;
 }
 @end
 
@@ -44,33 +45,31 @@
 #pragma mark - Private API
 
 - (void)addChildVCs {
+    
     // backVC
     [self addChildViewController:self.backVC];
     [self.view addSubview:self.backVC.view];
-    
-    self.backVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraintForSubview:self.backVC.view visualFormat:@"H:|[backView]|"];
-    
-    dockedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backView(150)]"
-                                                                                   options:0
-                                                                                   metrics:nil
-                                                                                     views:@{@"backView": self.backVC.view}];
-    [self.view addConstraints:dockedConstraints];
-    
     [self.backVC didMoveToParentViewController:self];
+    
+    [self.backVC.view makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+        make.top.equalTo(self.view.top);
+        contractedConstraint = make.height.equalTo(@(SplitPoint));
+    }];
     
     
     // frontVC
     [self addChildViewController:self.frontVC];
     [self.view addSubview:self.frontVC.view];
-    
-    self.frontVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraintForSubview:self.frontVC.view visualFormat:@"H:|[frontView]|"];
-    NSDictionary *views = @{@"backView": self.backVC.view,
-                            @"frontView": self.frontVC.view};
-    [self.view addConstraintsForViews:views visualFormat:@"V:[backView][frontView]|"];
-    
     [self.frontVC didMoveToParentViewController:self];
+    
+    [self.frontVC.view makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+        make.top.equalTo(self.backVC.view.bottom);
+        make.bottom.equalTo(self.view.bottom);
+    }];
 }
 
 - (void)addTopTapRecognizer {
@@ -79,28 +78,37 @@
 }
 
 - (void)backViewWasTapped:(UIGestureRecognizer *)tapRecognizer {
-    [self.view removeConstraints:dockedConstraints];
-    expandedConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backView]|"
-                                                                  options:0
-                                                                  metrics:nil
-                                                                    views:@{@"backView": self.backVC.view}];
-    [self.view addConstraints:expandedConstraints];
+    if (backViewIsExpanded) return;
+    
+    [self backViewWillExpand];
+    
+    [contractedConstraint uninstall];
+
+    [self.backVC.view makeConstraints:^(MASConstraintMaker *make) {
+        expandedConstraint = make.bottom.equalTo(self.view.bottom);
+    }];
+    
     [UIView animateWithDuration:ExpandContractDuration
                      animations:^{
                          [self.view layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         backViewIsExpanded = YES;
                      }];
-    
-    [self backViewWillExpand];
 }
 
 - (void)contractBackView {
-    [self.view removeConstraints:expandedConstraints];
-    [self.view addConstraints:dockedConstraints];
+    if (!backViewIsExpanded) return;
+    
+    [self backViewWillContract];
+    [expandedConstraint uninstall];
+    [contractedConstraint install];
+    
     [UIView animateWithDuration:ExpandContractDuration
                      animations:^{
                          [self.view layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         backViewIsExpanded = NO;
                      }];
-    [self backViewWillContract];
 }
 
 @end
