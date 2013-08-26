@@ -13,7 +13,6 @@
 #define ExpandContractDuration 0.2
 
 @interface BMVertSplitVC (){
-    id<MASConstraint> contractedConstraint;
     id<MASConstraint> expandedConstraint;
     BOOL backViewIsExpanded;
 }
@@ -55,7 +54,9 @@
         make.left.equalTo(self.view.left);
         make.right.equalTo(self.view.right);
         make.top.equalTo(self.view.top);
-        contractedConstraint = make.height.equalTo(@(SplitPoint));
+        
+        // Will be overridden by the 'required' constraint when backView expands
+        make.height.equalTo(@(SplitPoint)).with.priorityHigh();
     }];
     
     
@@ -81,8 +82,6 @@
     if (backViewIsExpanded) return;
     
     [self backViewWillExpand];
-    
-    [contractedConstraint uninstall];
 
     [self.backVC.view makeConstraints:^(MASConstraintMaker *make) {
         expandedConstraint = make.bottom.equalTo(self.view.bottom);
@@ -101,7 +100,6 @@
     
     [self backViewWillContract];
     [expandedConstraint uninstall];
-    [contractedConstraint install];
     
     [UIView animateWithDuration:ExpandContractDuration
                      animations:^{
